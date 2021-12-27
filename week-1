@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=divce-width,initial-scale=1,maximum=scale=1"/>
+  <title>Week_1</title>
+  <style type="text/css">
+    .head{
+      background-color:#ddeff9;font-weight:bold;font-size:40px;
+	  text-align:center;padding:150px;
+	}
+	.content{
+	  width:1200px;margin-left:auto;margin-right:auto;
 
+	}
+	.box{
+	  width:250px;padding:10px;margin:10px;text-align:center;
+	  width:250px;height="150px;
+	  display:inline-block;vertical-align:bottom;line-height:30px
+	}
+	  
+  </style>
+  
+</head>
+<body style="font-size:20px">
+  <div style="font-weight:bold;">My Website</div>
+  <div style="text-align:right;">
+    <a>Item 1</a>
+	<a>Item 2</a>
+	<a>Item 3</a>
+	<a>Item 4</a>
+  </div>
+  </div>
+  <div  class="head">Welcome to MyHome</div>
+  <div  class="content">
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 1</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 2</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 3</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 4</img>
+  </div>
+  <div class="content">
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	  class="box">Title 5</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 6</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 7</img>
+    <img src="https://dulu5budzucsb.cloudfront.net/upload/202112/1edca0b54209d7ee53901077e67b9840.jpg"
+	   class="box">Title 8</img>
+  </div>
+</body>
+</html>
