@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>Week_2</title>
+        <script type="text/javascript">
+
+            function calculate(min, max){
+                var sum=0
+                for(min;min<=max;min++)
+                    sum=sum+min
+                return sum 
+            }
+            answer=calculate(1, 3);  // 你的程式要能夠計算 1+2+3，最後印出 6
+            console.log(answer) 
+            answer=calculate(4, 8);  // 你的程式要能夠計算 4+5+6+7+8，最後印出 30
+            console.log(answer) 
+
+            function avg(data){
+                // 請用你的程式補完這個函式的區塊
+                var x=data.count;
+                var y=data.employees;
+                var sum=0
+                y.forEach(function(item, index, array){
+                    var z=item.salary;
+                    sum=sum+z;
+                });
+                average=sum/x
+                return average 
+                 }
+
+            answer=avg({
+                "count":3,
+                "employees":[
+                {
+                "name":"John",
+                "salary":30000
+                },
+                {
+                "name":"Bob",
+                "salary":60000
+                },
+                {
+                "name":"Jenny",
+                "salary":50000
+                }
+                ]
+                }); // 呼叫 avg 函式
+            console.log(answer)
+
+            function maxProduct(nums){
+                // 請用你的程式補完這個函式的區塊
+                var m1=Math.max(...nums);
+                var x2=nums.slice();
+                x2 = x2.filter(function(item) {
+                    return item != m1
+                });
+                var m2=Math.max(...x2);
+
+                var m3=Math.min(...nums);
+                var x3=nums.slice();
+                x3 = x3.filter(function(item) {
+                    return item != m3
+                });
+                var m4=Math.min(...x3);
+
+                x=m1*m2;
+                y=m3*m4;
+
+                if(x>=y){
+                    return x
+                }
+                else{
+                    return y
+                } 
+
+                }
+            answer=maxProduct([5, 20, 2, 6]) // 得到 120
+            console.log(answer)
+            answer=maxProduct([10, -20, 0, 3]) // 得到 30
+            console.log(answer)
+            answer=maxProduct([-1, 2]) // 得到 -2
+            console.log(answer)
+            answer=maxProduct([-1, 0, 2]) // 得到 0
+            console.log(answer)
+            answer=maxProduct([-1, -2, 0]) // 得到 2
+            console.log(answer)
+
+
+            function twoSum(nums, target){
+                // your code here
+                for (var x = 0; x < nums.length; x++) {
+                    var a = nums[x];
+                    var b=target-a;
+                    if (b in nums){
+                        return [nums.indexOf(b),nums.indexOf(a)];
+                    }
+                }             
+            }
+            let result=twoSum([2, 11, 7, 15], 9);
+            console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
+
+        
+            
+
+
+            
+            
+        </script>
+    </head>
+    <body>
+    </body>
+
+
+</html>
