@@ -5,7 +5,7 @@
         <script type="text/javascript">
 
             function calculate(min, max){
-                var sum=0
+                let sum=0
                 for(min;min<=max;min++)
                     sum=sum+min
                 return sum 
@@ -17,14 +17,14 @@
 
             function avg(data){
                 // 請用你的程式補完這個函式的區塊
-                var x=data.count;
-                var y=data.employees;
-                var sum=0
-                y.forEach(function(item, index, array){
-                    var z=item.salary;
-                    sum=sum+z;
+                let count=data.count;
+                let employees_data=data.employees;
+                let sum=0
+                employees_data.forEach(function(item, index, array){
+                    var employees_salary=item.salary;
+                    sum=sum+employees_salary;
                 });
-                average=sum/x
+                average=sum/count
                 return average 
                  }
 
@@ -49,28 +49,28 @@
 
             function maxProduct(nums){
                 // 請用你的程式補完這個函式的區塊
-                var m1=Math.max(...nums);
-                var x2=nums.slice();
-                x2 = x2.filter(function(item) {
-                    return item != m1
+                let max_num=Math.max(...nums);
+                let list_copy=nums.slice();
+                list_copy = list_copy.filter(function(item) {
+                    return item != max_num
                 });
-                var m2=Math.max(...x2);
+                let secondmax_num=Math.max(...list_copy);
 
-                var m3=Math.min(...nums);
-                var x3=nums.slice();
-                x3 = x3.filter(function(item) {
-                    return item != m3
+                let min_num=Math.min(...nums);
+                let list_copy_2=nums.slice();
+                list_copy_2 = list_copy_2.filter(function(item) {
+                    return item != min_num
                 });
-                var m4=Math.min(...x3);
+                let secondmmin_num=Math.min(...list_copy_2);
 
-                x=m1*m2;
-                y=m3*m4;
+                max_sum=max_num*secondmax_num;
+                min_sum=min_num*secondmmin_num;
 
-                if(x>=y){
-                    return x
+                if(max_sum>=min_sum){
+                    return max_sum
                 }
                 else{
-                    return y
+                    return min_sum
                 } 
 
                 }
@@ -88,11 +88,11 @@
 
             function twoSum(nums, target){
                 // your code here
-                for (var x = 0; x < nums.length; x++) {
-                    var a = nums[x];
-                    var b=target-a;
-                    if (b in nums){
-                        return [nums.indexOf(b),nums.indexOf(a)];
+                for (let x = 0; x < nums.length; x++) {
+                    let m1 = nums[x];
+                    let m2=target-m1;
+                    if (m2 in nums){
+                        return [nums.indexOf(m2),nums.indexOf(m1)];
                     }
                 }             
             }

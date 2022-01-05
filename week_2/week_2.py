@@ -13,13 +13,13 @@ print(result)
 
 def avg(data):
     # 請用你的程式補完這個函式的區塊
-    x=data["count"]
-    y=data["employees"]
+    count=data["count"]
+    employees_data=data["employees"]
     sum=0
-    for n in y:
-        z=n["salary"]
-        sum=sum+z
-    average=sum/x
+    for n in employees_data:
+        salary_list=n["salary"]
+        sum=sum+salary_list
+    average=sum/count
     return average   
 
 result=avg({
@@ -45,21 +45,21 @@ print(result)
 
 def maxProduct(nums):
     # 請用你的程式補完這個函式的區塊
-    m1 = max(nums)#m1是最大元素
-    x2 = nums.copy()#複製一個列表，同時不破壞原來的列表
-    x2.remove(m1)#把列表里最大的元素刪除
-    m2 = max(x2)#再次取列表里最大的元素，這時取到的就是列表里第二大的元素
+    max_num = max(nums)#m1是最大元素
+    list_copy = nums.copy()#複製一個列表，同時不破壞原來的列表
+    list_copy.remove(max_num)#把列表里最大的元素刪除
+    secondmax_num = max(list_copy)#再次取列表里最大的元素，這時取到的就是列表里第二大的元素
     #m1是第二大的值,m2是最大值
-    m3 = min(nums)
-    x2 = nums.copy()
-    x2.remove(m3)
-    m4 = min(x2)
+    min_num = min(nums)
+    list_copy = nums.copy()
+    list_copy.remove(min_num)
+    secondmmin_num = min(list_copy)
     #m4是第二小的值,m3是最小值
-    x=m1*m2
-    y=m3*m4
-    if x>=y:
-        return x
-    else: return y
+    max_sum=max_num*secondmax_num
+    min_sum=min_num*secondmmin_num
+    if max_sum>=min_sum:
+        return max_sum
+    else: return min_sum
     
     
 result=maxProduct([5, 20, 2, 6]) # 得到 120
@@ -76,10 +76,10 @@ print(result)
 
 def twoSum(nums, target):
     # your code here
-    for x in (nums):
-        y=target-x
-        if y in (nums):
-            return [(nums.index(x)),(nums.index(y))]    
+    for n in (nums):
+        i=target-n
+        if i in (nums):
+            return [(nums.index(n)),(nums.index(i))]    
 
 result=twoSum([2, 11, 7, 15], 9)
 print(result) # show [0, 2] because nums[0]+nums[2] is 9
