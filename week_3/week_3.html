@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>week_3</title>
+    <link rel="stylesheet" type="text/css" href="layout.css">
+  </head>
+    <body style="font-size:20px">
+        <div class="frame-1">
+            <div class="left">My website</div>
+            <div class="right">
+              <div class="item">Item 1</div>
+              <div class="item">Item 2</div>
+              <div class="item">Item 3</div>
+              <div class="item" id="div1">Item 4</div>
+              <img class="img-1" src=menu.png></img>
+            </div>
+        </div>
+        <div class="welcome">
+          <div class="text-1">Welcome to MyHome</div>
+        </div>
+        
+          <div class="wrapper">
+            <div class="box-1" id="content-0"></div>
+            <div class="box-1" id="content-1"></div>
+            <div class="box-1" id="content-2"></div>
+            <div class="box-1" id="content-3"></div>
+            <div class="box-1" id="content-4"></div>
+            <div class="box-1" id="content-5"></div>
+            <div class="box-1" id="content-6"></div>
+            <div class="box-1" id="content-7"></div>
+
+            <script>
+              let openUrl="https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json";
+              let req = new XMLHttpRequest();
+              req.open('get',openUrl,true);
+              req.onload = function(){
+                  let data = JSON.parse(this.responseText);
+                  let spot_list=data.result.results;
+        
+                  for(let i=0;i<8;i++){
+                    let spot_names=data.result.results[i].stitle;
+                    let spot_imgs=data.result.results[i].file;
+                    spot_imgs=spot_imgs.split('https://');
+                    spot_imgs="https://"+spot_imgs[1];
+                    
+
+                    let img=document.createElement("img");
+                    let p=document.createElement("p");           
+                    
+                    img.src=spot_imgs;
+                    p.textContent=spot_names;
+                    
+                    let content=document.getElementById("content-"+i);
+                    console.log(content);
+                    
+                    content.appendChild(img);
+                    content.appendChild(p);
+        
+                    img.setAttribute("class","img-2");
+                    p.setAttribute("class","text-2");
+                      
+                    };
+                  
+        
+              };
+              req.send();
+        
+        
+          </script>
+    </body>
+
+
+  </html>
