@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"></meta>
+  <title>Week_4</title>
+  <style type="text/css">
+    .head{
+	  background-color:#f07167;text-align:center;font-size:30px;font-weight:bold;
+	  color:white;padding:15px
+	}
+    .title{
+        text-align:center;
+    }
+    .button{
+        margin-top:10px;
+        cursor:pointer;
+        }
+
+
+  </style>
+  
+</head>
+<body style="margin:0px;background-color:#ffeedd">
+  <div class="head">失敗頁面</div>
+  <form action="/error/">
+    <h3 class="title">{{message}}</h3>
+  </form>
+  <center><button class="button" onclick="location.href='/'">返回首頁</button></center>
+</body>
+</html>
