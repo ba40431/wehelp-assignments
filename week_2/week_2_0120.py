@@ -23,5 +23,3 @@ result=maxZeros([1, 1, 1, 1, 1]) # 得到 0
 print(result)
 result=maxZeros([0, 0, 0, 1, 1]) # 得到 3
 print(result)
-result=maxZeros([0, 0, 0, 1, 1, 0 ,0, 0, 0,1]) # 得到 4
-print(result)
