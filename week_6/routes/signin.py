@@ -16,17 +16,21 @@ def signin():
         database="website"
     )
     cursor=connection.cursor()
-    cursor.execute("SELECT * FROM `member`;")
-    members=cursor.fetchall()
+    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",[username])
+    member=cursor.fetchone()
 
-    for member in members:
+    if member==None:
+        if username==''or password=='':
+            return redirect("/error/?message=請輸入帳號、密碼")
+        else:return redirect("/error/?message=帳號或密碼輸入錯誤")
+    if member:
         if username==member[2] and  password==member[3]:
             session["username"]= username
-            return redirect("/member/")  
-    if username=='' or  password=='':
+            return redirect("/member/")
+        elif username==''or password=='':
             return redirect("/error/?message=請輸入帳號、密碼")
-    else:
-        return redirect("/error/?message=帳號或密碼輸入錯誤")
+        else:
+            return redirect("/error/?message=帳號或密碼輸入錯誤")
 
     cursor.close()
     connection.close()

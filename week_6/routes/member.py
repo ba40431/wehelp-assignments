@@ -5,6 +5,7 @@ member_info=Blueprint("member",__name__,static_folder="static",template_folder="
 
 @member_info.route("/member/")
 def member():
+    username=session["username"]
     connection=mysql.connector.connect(
         host="localhost",
         port="3306",
@@ -13,11 +14,12 @@ def member():
         database="website"
     )
     cursor=connection.cursor()
-    cursor.execute("SELECT * FROM `member`;")
-    members=cursor.fetchall()
+    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",[username])
+    member=cursor.fetchone()
 
-    for member in members:
-        if session["username"]==member[2]:
+    # for member in members:
+    if member:
+        if username==member[2]:
             return render_template("member.html",name=member[1])
     else:return redirect("/")
 
