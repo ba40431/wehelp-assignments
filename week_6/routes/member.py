@@ -17,7 +17,6 @@ def member():
     cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",[username])
     member=cursor.fetchone()
 
-    # for member in members:
     if member:
         if username==member[2]:
             return render_template("member.html",name=member[1])
