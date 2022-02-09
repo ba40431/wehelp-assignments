@@ -23,9 +23,10 @@ def signin():
         if username==''or password=='':
             return redirect("/error/?message=請輸入帳號、密碼")
         else:return redirect("/error/?message=帳號或密碼輸入錯誤")
-    if member:
+    if member: #有值
         if username==member[2] and  password==member[3]:
             session["username"]= username
+            session["name"]=member[1]
             return redirect("/member/")
         elif username==''or password=='':
             return redirect("/error/?message=請輸入帳號、密碼")
