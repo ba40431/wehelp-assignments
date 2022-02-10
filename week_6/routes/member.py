@@ -4,6 +4,6 @@ member_info=Blueprint("member",__name__,static_folder="static",template_folder="
 
 @member_info.route("/member/")
 def member():
-    if session["username"]: #有值
+    if session["username"]: 
          return render_template("member.html",name=session["name"])
     else:return redirect("/")
