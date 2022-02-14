@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"></meta>
+  <title>Week_7</title>
+  <style type="text/css">
+    .head{
+	  background-color:#f07167;text-align:center;font-size:30px;font-weight:bold;
+	  color:white;padding:15px
+	  }
+    .title{
+        text-align:center;
+    }
+    .text{
+        text-align:center;margin-top: 5px;margin-bottom: 5px;
+    }
+    .button{
+        margin-top:10px;
+        cursor:pointer;
+    }
+    .member_info{
+      text-align:center;margin-top: 5px;margin-bottom: 5px;
+      font-size:20px
+    }
+
+  </style>
+  
+</head>
+<body style="margin:0px;background-color:#ffeedd">
+  <div class="head">歡迎光臨，這是會員頁</div>
+  <form action="/signout">
+    <h3 class="title">{{name}}，歡迎登入系統</h3>
+    <center><button class="button">登出系統</button></center>
+  </form>
+  <hr/>
+  <h3 class="title">查詢會員姓名</h3>
+  <div class="text"><input type="text" id="username">
+    <button class="button" id="button">查詢</button>
+  </div>
+  <div class="member_info" id="member_info"></div>
+
+  <script>
+    let button=document.getElementById("button");
+    button.addEventListener('click',(e)=>{
+      let username=document.getElementById("username").value;
+      let open_url="http://127.0.0.1:3000/api/members?username="+ username;
+      fetch(open_url).then(function(response){
+        return response.json();
+      }).then(function(data){
+        if(data.data !=null){
+          // console.log(data.data)
+          let member_info=document.getElementById("member_info");
+          member_info.textContent=data.data.name+" "+"("+data.data.username+")"
+        }
+        else{
+          // console.log(data.data)
+          let member_info=document.getElementById("member_info");
+          member_info.textContent="無此會員資料"
+        }
+       }).catch(function(error) {
+          // Error 
+            alert("連線發生錯誤")
+        })
+    })
+    
+  </script>
+</body>
+</html>
