@@ -11,7 +11,7 @@ def signin():
 
     connection=pool.connection()
     cursor=connection.cursor()
-    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",[username])
+    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",(username,))
     member=cursor.fetchone()
 
     if member==None:

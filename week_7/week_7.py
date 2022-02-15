@@ -4,7 +4,8 @@ from routes.signout import signout_info
 from routes.member import member_info
 from routes.signin import signin_info
 from routes.signup import signup_info
-from routes.api import api_members
+from routes.api_members import api_members
+from routes.api_member import api_member
 
 app=Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -15,6 +16,7 @@ app.register_blueprint(member_info)
 app.register_blueprint(signin_info)
 app.register_blueprint(signup_info)
 app.register_blueprint(api_members)
+app.register_blueprint(api_member)
 
 @app.route("/")
 def index():

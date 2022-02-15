@@ -12,7 +12,7 @@ def signup():
 
     connection=pool.connection()
     cursor=connection.cursor()
-    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",[register_username])
+    cursor.execute("SELECT * FROM `member` WHERE `username`=%s ;",(register_username,))
     member=cursor.fetchone()
 
     if member==None:
@@ -29,3 +29,6 @@ def signup():
     if member:
         if register_username==member[2]:
             return redirect("/error/?message=帳號已經被註冊")
+
+    cursor.close()
+    connection.close()
